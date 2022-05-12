@@ -1,11 +1,11 @@
 import socket
 from threading import Thread
 from crypt_class import *
-from funcoes_aux import pegar_switches
+#from funcoes_aux import pegar_switches
 
 cry = Cryptographer(Key = 17)
 
-cry.generate_lock(2**5)
+cry.generate_lock(2**8)
     
 
 def writeMSG(server, conexao):
@@ -16,6 +16,7 @@ def writeMSG(server, conexao):
         
         msg = cry.encrypt(msg)
         conexao.sendto(msg.encode(), server)
+        
     
 
 def receiveMSG(server,conexao):
@@ -54,14 +55,13 @@ def key_exchange(conexao,server):
     
 
 def Client():
-   #serverIP = input("Server IP: ")
-   #Port = int(input("Port: "))
+    #serverIP = input("Server IP: ")
+    #Port = int(input("Port: "))
+    #chave = pegar_switches()
+    chave = 17
 
-    cry = Cryptographer(Key = pegar_switches())
-
-    cry.generate_lock(2**5)
     
-    serverIP,Port = '192.168.56.1',50000
+    serverIP,Port = '192.168.0.11',50000
 
     server = (serverIP, Port)
 
