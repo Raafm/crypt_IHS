@@ -8,6 +8,10 @@ ip, port = "",50000 #"192.168.56.1",50000
 server = socket.socket(socket.AF_INET , socket.SOCK_DGRAM )
 server.bind((ip, port))
 
+hostname = socket.getfqdn()
+print('hostname:',hostname)
+print("IP Address:",socket.gethostbyname_ex(hostname))
+
 clients     = []
 client_name = {}
 client_lock = {}
