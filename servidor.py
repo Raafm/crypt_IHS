@@ -4,7 +4,7 @@ from crypt_class import *
 
 print("\t\t\t====>  UDP CHAT APP  <=====")
 print("==============================================")
-ip, port = "",50000#"192.168.56.1",50000
+ip, port = "",50000 #"192.168.56.1",50000
 server = socket.socket(socket.AF_INET , socket.SOCK_DGRAM )
 server.bind((ip, port))
 
